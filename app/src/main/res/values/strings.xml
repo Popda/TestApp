@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="text">Text</string>
+    <string name="add_note">Введіть ваш запит</string>
+    <string name="name">Name</string>
+    <string name="placeOfWork">PlaceOfWork</string>
+    <string name="position">Position</string>
+    <string name="add">add</string>
+    <string name="note_text">%1$s</string>
+    <string name="hint_date">Date</string>
+    <string name="hint_text">Ваш коментар</string>
+    <string name="search_btn">Пошук</string>
+    <string name="fav_btn">Обрані</string>
+    <string name="back_btn">Повернутися до головної</string>
+</resources>
