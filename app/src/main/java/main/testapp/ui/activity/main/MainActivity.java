@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import main.testapp.R;
 import main.testapp.core.model.Item;
@@ -19,7 +18,8 @@ import main.testapp.ui.activity.base.BaseActivity;
 import main.testapp.ui.activity.main.implementation.MainImplementation;
 import main.testapp.ui.activity.main.presenter.MainPresenter;
 import main.testapp.ui.activity.main.view.MainView;
-import main.testapp.ui.adapter.MyRetrofitAdapter;
+import main.testapp.ui.adapter.MainRecyclerViewAdapter;
+import main.testapp.ui.adapter.RetrofitAdapter;
 
 public class MainActivity extends BaseActivity implements MainView{
 
@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity implements MainView{
     protected EditText searchName;
     @BindView(R.id.favBtn)
     protected Button favBtn;
-    MyRetrofitAdapter adapter;
+    RetrofitAdapter adapter;
     List<Item> items;
 
     private MainPresenter mainPresenter = new MainImplementation(this);
@@ -44,11 +44,8 @@ public class MainActivity extends BaseActivity implements MainView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity_layout);
-        ButterKnife.bind(this);
         mainPresenter.attachView(this);
         list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        items = new ArrayList<>();
     }
 
     @Override
@@ -56,9 +53,6 @@ public class MainActivity extends BaseActivity implements MainView{
     public void searchNewItems() {
         if (mainPresenter.isNetworkConnected(this)){
             mainPresenter.getDeclarations(searchName.getText().toString(),this);
-            adapter = new MyRetrofitAdapter(MainActivity.this, items);
-            list.setAdapter(adapter);
-            list.getAdapter().notifyDataSetChanged();
         } else {Toast.makeText(this,"Немає з'єднання з мережею Internet",Toast.LENGTH_LONG).show();}
     }
 
@@ -70,7 +64,7 @@ public class MainActivity extends BaseActivity implements MainView{
 
     @Override
     public void searchItemsIsReady(List<Item> items) {
-        this.items=items;
+            list.setAdapter(new RetrofitAdapter(this, items));
     }
 
     @Override

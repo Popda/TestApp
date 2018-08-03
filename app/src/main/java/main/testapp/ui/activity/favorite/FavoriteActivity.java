@@ -16,7 +16,7 @@ import main.testapp.ui.activity.favorite.presenter.FavPresenter;
 import main.testapp.ui.activity.favorite.view.FavView;
 import main.testapp.ui.adapter.MainRecyclerViewAdapter;
 
-public class Favorite extends BaseActivity implements FavView {
+public class FavoriteActivity extends BaseActivity implements FavView {
 
     @BindView(R.id.list2)
     protected RecyclerView list;
@@ -31,8 +31,6 @@ public class Favorite extends BaseActivity implements FavView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favirite);
-        ButterKnife.bind(this);
         favPresenter.attachView(this);
         list.setLayoutManager(new LinearLayoutManager(this));
         favPresenter.getAllFavs();

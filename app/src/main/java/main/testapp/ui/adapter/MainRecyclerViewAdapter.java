@@ -1,5 +1,6 @@
 package main.testapp.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -73,6 +74,7 @@ public class MainRecyclerViewAdapter extends RealmRecyclerViewAdapter<SaveModel,
         return holder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SaveModel noteModel = getItem(position);
@@ -80,8 +82,8 @@ public class MainRecyclerViewAdapter extends RealmRecyclerViewAdapter<SaveModel,
             return;
 
         holder.nameTextview.setText(noteModel.getName());
-        holder.placeOfWorkTextview.setText(noteModel.getPlaceOfWork());
-        holder.positionTextview.setText(noteModel.getPosition());
+        holder.placeOfWorkTextview.setText(Strings.PLACE+noteModel.getPlaceOfWork());
+        holder.positionTextview.setText(Strings.POSITION+noteModel.getPosition());
         holder.noteTextView.setText(noteModel.getText());
     }
 

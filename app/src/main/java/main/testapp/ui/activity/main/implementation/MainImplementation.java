@@ -15,7 +15,7 @@ import main.testapp.core.api.DeclarationApi;
 import main.testapp.core.model.DeclarationModel;
 import main.testapp.core.model.Item;
 import main.testapp.ui.activity.base.implementation.BaseImplementation;
-import main.testapp.ui.activity.favorite.Favorite;
+import main.testapp.ui.activity.favorite.FavoriteActivity;
 import main.testapp.ui.activity.main.presenter.MainPresenter;
 import main.testapp.ui.activity.main.view.MainView;
 import retrofit2.Call;
@@ -47,8 +47,10 @@ public class MainImplementation extends BaseImplementation<MainView> implements 
                 DeclarationModel data = response.body();
                 if (data!=null && response.body()!= null){
                     if (data.getItems()!=null) {
-                        List<Item> items = new ArrayList<>(data.getItems());
-                            view.searchItemsIsReady(items);
+                        List<Item> items = new ArrayList<>();
+                        items.clear();
+                        items.addAll(data.getItems());
+                        view.searchItemsIsReady(items);
                         } else {
                             Toast.makeText(context, "Невіроно ведений запит",Toast.LENGTH_LONG).show();}
                 }
@@ -62,7 +64,7 @@ public class MainImplementation extends BaseImplementation<MainView> implements 
 
     @Override
     public void showFavorite() {
-        Intent intent = new Intent(view.getContext(), Favorite.class);
+        Intent intent = new Intent(view.getContext(), FavoriteActivity.class);
         view.getContext().startActivity(intent);
     }
 

@@ -19,7 +19,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.favorite.Favorite" />
+        <activity android:name=".ui.activity.favorite.FavoriteActivity" />
         <activity
             android:name=".ui.activity.add_fav_dialog.AddFavDialog"
             android:excludeFromRecents="true"

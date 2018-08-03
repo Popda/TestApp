@@ -27,11 +27,11 @@ import main.testapp.ui.activity.add_fav_dialog.AddFavDialog;
 /**
  * Created by Andriy Chopovenko on 02.08.2018.
  */
-public class MyRetrofitAdapter extends RecyclerView.Adapter<MyRetrofitAdapter.ViewHolder> {
+public class RetrofitAdapter extends RecyclerView.Adapter<RetrofitAdapter.ViewHolder> {
     private List<Item> items;
     private Context mContext ;
 
-    public MyRetrofitAdapter(Context mContext, List<Item> items){
+    public RetrofitAdapter(Context mContext, List<Item> items){
         this.mContext = mContext;
         this.items = items;
     }
