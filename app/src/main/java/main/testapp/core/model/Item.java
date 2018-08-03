@@ -3,8 +3,6 @@ package main.testapp.core.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 /**
  * Created by Andriy Chopovenko on 02.08.2018.
  */

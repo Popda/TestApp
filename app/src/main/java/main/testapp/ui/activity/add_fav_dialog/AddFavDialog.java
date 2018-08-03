@@ -1,13 +1,10 @@
 package main.testapp.ui.activity.add_fav_dialog;
 
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.widget.Toast;
-
-import java.lang.ref.WeakReference;
 
 import butterknife.BindView;
 import butterknife.OnClick;

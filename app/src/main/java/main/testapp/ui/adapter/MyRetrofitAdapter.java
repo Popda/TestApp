@@ -1,5 +1,6 @@
 package main.testapp.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,7 +23,6 @@ import main.testapp.core.Strings;
 import main.testapp.core.model.Item;
 import main.testapp.core.model.SaveModel;
 import main.testapp.ui.activity.add_fav_dialog.AddFavDialog;
-import main.testapp.ui.activity.main.MainActivity;
 
 /**
  * Created by Andriy Chopovenko on 02.08.2018.
@@ -72,6 +71,7 @@ public class MyRetrofitAdapter extends RecyclerView.Adapter<MyRetrofitAdapter.Vi
         return holder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String fulName = items.get(position).getLastname() + " " + items.get(position).getFirstname();
@@ -100,7 +100,7 @@ public class MyRetrofitAdapter extends RecyclerView.Adapter<MyRetrofitAdapter.Vi
 
         MyClickListener listener;
 
-        public ViewHolder(View view, MyClickListener listener) {
+        ViewHolder(View view, MyClickListener listener) {
             super(view);
             this.listener=listener;
             ButterKnife.bind(this, view);

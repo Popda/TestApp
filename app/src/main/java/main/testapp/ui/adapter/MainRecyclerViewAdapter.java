@@ -11,8 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.OrderedRealmCollection;
@@ -20,8 +18,6 @@ import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
 import main.testapp.R;
 import main.testapp.core.Strings;
-import main.testapp.core.model.DeclarationModel;
-import main.testapp.core.model.Item;
 import main.testapp.core.model.SaveModel;
 import main.testapp.ui.activity.add_fav_dialog.AddFavDialog;
 
@@ -107,7 +103,7 @@ public class MainRecyclerViewAdapter extends RealmRecyclerViewAdapter<SaveModel,
 
         MyClickListener listener;
 
-        public ViewHolder(View view, MyClickListener listener) {
+        ViewHolder(View view, MyClickListener listener) {
             super(view);
             this.listener=listener;
             ButterKnife.bind(this, view);
